@@ -1,3 +1,4 @@
+// Utilizes : https://developers.google.com/maps/documentation/geolocation/overview
 // Function to retrieve the user's location from the Geolocation API
 const googleGeolocateApi = 'https://www.googleapis.com/geolocation/v1/geolocate';
 // Replace with the URL of your API endpoint
