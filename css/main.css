@@ -12,9 +12,33 @@
    ========================================================================== */
 
 html {
-  color: #222;
+  color: #002054;
   font-size: 1em;
   line-height: 1.4;
+  background: #f1f0e9;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header * {
+  margin: 0;
+}
+
+button#clear {
+  height: 100%;
+}
+
+pre#message {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #002054;
+  height: 80vh;
+  overflow-y: auto;
 }
 
 /*

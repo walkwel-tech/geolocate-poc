@@ -8,6 +8,10 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+function clearMessage() {
+  document.getElementById('message').innerHTML = '';
+}
+
 // Code to request geolocation api
 function initiateLocationAccess() {
   const message = document.getElementById('message');
