@@ -141,9 +141,9 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-// Retrieve the location immediately upon service worker installation
-getLocation();
-
-// Schedule to retrieve the location every 5 seconds
-setInterval(getLocation, 5000);
-
+// // Retrieve the location immediately upon service worker installation
+// getLocation();
+//
+// // Schedule to retrieve the location every 5 seconds
+// setInterval(getLocation, 5000);
+//
