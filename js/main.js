@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator) {
 }
 
 function clearMessage() {
-  document.getElementById('message').innerHTML = '';
+  document.getElementById('message').innerHTML = `${new Date()} |`;
 }
 
 // Code to request geolocation api
@@ -32,23 +32,23 @@ function initiateLocationAccess() {
             longitude: position.coords.longitude,
           };
           console.log('new location', data);
-          message.append(`New location: ${data.latitude}, ${data.longitude}`);
+          message.append(`${new Date()} | New location: ${data.latitude}, ${data.longitude}`);
           message.append(document.createElement('br'));
         },
         (error) => {
           console.error(`Geolocation error: ${error}`);
-          message.append(`Geolocation error: ${error}`);
+          message.append(`${new Date()} | Geolocation error: ${error}`);
           message.append(document.createElement('br'));
         }
       );
     } else {
       console.error("Geolocation not supported.");
-      message.append("Geolocation not supported.");
+      message.append(`${new Date()} | Geolocation not supported.`);
       message.append(document.createElement('br'));
     }
   } else {
     console.error('Geolocation is not supported');
-    message.append('Geolocation is not supported');
+    message.append(`${new Date()} | Geolocation is not supported`);
     message.append(document.createElement('br'));
   }
 }
