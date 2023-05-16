@@ -1,0 +1,34 @@
+sequenceDiagram
+    participant TMS
+    participant RedData
+    participant SMS Gateway
+    participant Driver
+    participant PWA
+    participant Geolocation Service
+
+    autonumber
+
+    TMS-->>RedData: Request Tracking for driver X
+    critical Tracking Link
+        RedData->>RedData: Generate Hash
+        RedData->>SMS Gateway: Send SMS to driver X
+        SMS Gateway->>Driver: SMS with Tracking Hash
+        RedData->>TMS: Tracking Hash
+    end
+
+    TMS-->>TMS: Link Tracking Hash to Shipment
+
+    Driver->>PWA: Open PWA
+    loop periodic tracking
+        rect rgb(86, 128, 202)
+            PWA->>Geolocation Service: Request Geolocation
+            Geolocation Service->>PWA: Geolocation (Lat,Long)
+            PWA->>RedData: Send Location
+            RedData->>PWA: Confirm Further Tracking
+            RedData->>RedData: Store Location
+        end
+    end
+    Driver-->>Driver: Exits Browser
+
+    TMS->>RedData: Request Tracking for Hash
+    RedData->>TMS: Location History for Hash

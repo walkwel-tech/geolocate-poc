@@ -1,6 +1,7 @@
 // Utilizes : https://developers.google.com/maps/documentation/geolocation/overview
 // Function to retrieve the user's location from the Geolocation API
-const googleGeolocateApi = 'https://www.googleapis.com/geolocation/v1/geolocate';
+const GOOGLE_API_KEY = '';
+const googleGeolocateApi = `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_API_KEY}`;
 // Replace with the URL of your API endpoint
 const locationCacherUrl = 'https://example.com/api/location';
 
@@ -141,9 +142,9 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-// // Retrieve the location immediately upon service worker installation
-// getLocation();
-//
-// // Schedule to retrieve the location every 5 seconds
-// setInterval(getLocation, 5000);
-//
+// Retrieve the location immediately upon service worker installation
+getLocation();
+
+// Schedule to retrieve the location every 5 seconds
+setInterval(getLocation, 5000);
+

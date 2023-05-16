@@ -1,0 +1,26 @@
+---
+title: Data Relations
+---
+classDiagram
+    direction LR
+    class TMS {
+        String url
+        String prefix
+    }
+
+    class TrackingRequest {
+        String hash
+        Date Start
+        Date End
+    }
+
+    class LocationInfo {
+        Auto-Generated id
+        Number Latitude
+        Number Longitude
+        TimeStamp CreatedAt
+    }
+
+
+TrackingRequest "1" --> "n" LocationInfo
+TMS "1" --> "n" TrackingRequest
